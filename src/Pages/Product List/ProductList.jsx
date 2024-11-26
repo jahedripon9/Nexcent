@@ -1,179 +1,98 @@
-import  { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faHeart,
-	faShoppingCart,
-	faStar,
-	faStarHalfAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-
-const products = [
-	{
-		img: "https://cdn.easyfrontend.com/pictures/blog/blog_11_1.png",
-		title:
-			"2020 Apple MacBook Air Laptop: Apple M1 Chip, 13” Retina Display, 8GB RAM",
-		subTitle: "Computer & Accessories",
-		spec: {
-			ram: "16GB RAM",
-			drive: "1TB SSD Hard Drive",
-			gen: "10-core Intel Xeon<",
-			brand: "MAC OS",
-			security: "secured",
-		},
-		discountPrice: "1199.5",
-		realPrice: "2399",
-		discount: "-50%",
-		rating: 3.5,
-		count: "8",
-		shipping: "50",
-		availibility: "Available",
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import proImg from "../../assets/image9.png";
+import logo1 from '../../assets/Logo-1.png';
+import logo2 from '../../assets/Logo-2.png';
+import logo3 from '../../assets/Logo-3.png';
+import logo4 from '../../assets/Logo-4.png';
+import logo5 from '../../assets/Logo-5.png';
+import logo6 from '../../assets/Logo-6.png';
+const clientLogos = [
+    {
+		logo: logo1, // Remove extra {}
+		alt: "Client Logo 1",
 	},
 	{
-		img: "https://cdn.easyfrontend.com/pictures/blog/blog_11_2.png",
-		title:
-			"2020 Apple MacBook Air Laptop: Apple M1 Chip, 13” Retina Display, 8GB RAM",
-		subTitle: "Computer & Accessories",
-		spec: {
-			ram: "16GB RAM",
-			drive: "1TB SSD Hard Drive",
-			gen: "10-core Intel Xeon<",
-			brand: "MAC OS",
-			security: "secured",
-		},
-		discountPrice: "1199.5",
-		realPrice: "2399",
-		discount: "-50%",
-		rating: 4.5,
-		count: "8",
-		shipping: "50",
-		availibility: "Available",
+		logo: logo2,
+		alt: "Client Logo 2",
 	},
 	{
-		img: "https://cdn.easyfrontend.com/pictures/blog/blog_11_3.png",
-		title:
-			"2020 Apple MacBook Air Laptop: Apple M1 Chip, 13” Retina Display, 8GB RAM",
-		subTitle: "Computer & Accessories",
-		spec: {
-			ram: "16GB RAM",
-			drive: "1TB SSD Hard Drive",
-			gen: "10-core Intel Xeon<",
-			brand: "MAC OS",
-			security: "secured",
-		},
-		discountPrice: "1199.5",
-		realPrice: "2399",
-		discount: "-50%",
-		rating: 4,
-		count: "8",
-		shipping: "50",
-		availibility: "Available",
+		logo: logo3,
+		alt: "Client Logo 3",
+	},
+	{
+		logo: logo4,
+		alt: "Client Logo 4",
+	},
+	{
+		logo: logo5,
+		alt: "Client Logo 5",
+	},
+	{
+		logo: logo6,
+		alt: "Client Logo 6",
 	},
 ];
-
-const Rating = ({ rating }) => (
-	<span>
-		{[...Array(5)].map((_, i) => {
-			const index = i + 1;
-			let content = "";
-			if (index <= Math.floor(rating))
-				content = <FontAwesomeIcon icon={faStar} />;
-			else if (rating > i && rating < index + 1)
-				content = <FontAwesomeIcon icon={faStarHalfAlt} />;
-			else if (index > rating) content = <FontAwesomeIcon icon={farStar} />;
-
-			return <Fragment key={i}>{content}</Fragment>;
-		})}
-	</span>
-);
-
-Rating.propTypes = {
-	rating: PropTypes.number,
-};
-
-const specifications = [
-	{
-		value: "16GB RAM",
-	},
-	{
-		value: "1TB SSD Hard Drive",
-	},
-	{
-		value: "10-core Intel Xeon",
-	},
-	{
-		value: "Mac OS",
-	},
-	{
-		value: "Secured",
-	},
-];
-
-const SpecificationItem = ({ item }) => <li>{item.value}</li>;
-
-SpecificationItem.propTypes = {
-	item: PropTypes.object.isRequired,
-};
-
-const ProductItem = ({ product }) => {
-	return (
-		<div className="grid grid-cols-12">
-			{/* image */}
-			<div className="col-span-12 xl:col-span-4 relative">
-				<h6 className="absolute top-3 right-5 bg-green-500 text-white py-1 px-3 rounded-2xl">
-					New
-				</h6>
-
-				<a href="#!">
-					<img
-						src={product.img}
-						alt="..."
-						className="rounded-lg max-w-full h-auto w-full max-h-full"
-					/>
-				</a>
-			</div>
-			<div className="col-span-12 lg:col-span-7 xl:col-span-5 pt-6 xl:pt-0 lg:px-6">
-				<a href="#!">
-					<h5 className="text-[19px] font-medium leading-tight hover:underline">
-						{product.title}
-					</h5>
-				</a>
-				<a href="#!">
-					<h5 className="text-sm leading-none opacity-60 hover:underline font-medium mt-2">
-						{product.subTitle}
-					</h5>
-				</a>
-				<ul className="text-base list-disc opacity-60 pl-6 pt-6">
-					{specifications.map((item, i) => (
-						<SpecificationItem item={item} key={i} />
-					))}
-				</ul>
-			</div>
-			
-		</div>
-	);
-};
-
-ProductItem.propTypes = {
-	product: PropTypes.object.isRequired,
-};
 
 const ProductList = () => {
-	return (
-		<section className="ezy__eproductlist1 light py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white relative overflow-hidden z-10">
-			<div className="container px-4 mx-auto">
-				<div className="col-span-12 xl:col-span-4 relative">
-					{products.map((product, i) => (
-						<div className={classNames({ "mt-5": i })} key={i}>
-							<ProductItem product={product} />
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-	);
-};
+  return (
+    <section className="ezy__featured7 light relative py-8 md:py-12  dark:bg-[#0b1727] text-zinc-900 dark:text-white z-[1] bg-slate-50 rounded-lg ">
+      <div className="container px-4">
+        <div className="grid grid-cols-12 justify-center">
+          <div className="col-span-12 lg:col-span-10 lg:col-start-2">
+            <div className="grid grid-cols-12">
+              <div className="col-span-12 md:col-span-4 md:py-12">
+                <div className="">
+                  <img
+                    className="bg-center bg-no-repeat bg-cover rounded-xl min-h-[450px] h-full"
+                    src={proImg}
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="col-span-12 md:col-span-8 pb-6 md:py-6 relative">
+                <div className=" dark:bg-[#1E2735] absolute -top-[10%] right-0 left-0 bottom-0 md:top-0 md:-left-[20%] rounded-xl rotate-180 -z-[1]"></div>
+                <div className="p-3 lg:p-8 mb-2">
+                  <p>
+                    Maecenas dignissim justo eget nulla rutrum molestie.
+                    Maecenas lobortis sem dui, vel rutrum risus tincidunt
+                    ullamcorper. Proin eu enim metus. Vivamus sed libero ornare,
+                    tristique quam in, gravida enim. Nullam ut molestie arcu, at
+                    hendrerit elit. Morbi laoreet elit at ligula molestie, nec
+                    molestie mi blandit. Suspendisse cursus tellus sed augue
+                    ultrices, quis tristique nulla sodales. Suspendisse eget
+                    lorem eu turpis vestibulum pretium. Suspendisse potenti.
+                    Quisque malesuada enim sapien, vitae placerat ante feugiat
+                    eget. Quisque vulputate odio neque, eget efficitur libero
+                    condimentum id. Curabitur id nibh id sem dignissim finibus
+                    ac sit amet magna.
+                  </p>
+                  <h2 className="text-2xl font-semibold text-green-400 my-4">Tim Smith</h2>
+                  <p className="font-normal text-base text-gray-400">British Dragon Boat Racing Association</p>
+                </div>
 
-export default ProductList
+                <div className="px-6 lg:px-12 text-end flex items-center justify-start">
+                  <div className="flex flex-wrap items-center justify-center gap-5">
+                    {clientLogos.map((client, i) => (
+                      <img
+                        src={client.logo}
+                        alt={client.alt}
+                        className="max-h-10 h-auto max-w-full grayscale mx-0 transition-all duration-500 ease-in-out hover:grayscale-0 pr-5 mt-5"
+                        key={i}
+                      />
+                    ))}
+                  </div>
+                  <div className="mt-4">
+                  <button className="text-xl font-semibold text-green-400 ">Meet all customers</button>
+                  <FontAwesomeIcon className="text-xl text-green-400 ps-2" icon={faArrowRight} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+export default ProductList;
