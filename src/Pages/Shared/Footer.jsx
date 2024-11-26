@@ -1,13 +1,15 @@
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.png"; // Importing the logo image
+
 export default function Footer() {
   return (
     <>
-      {/*    <!-- Component: Five Columns Footer with Logo --> */}
-      <footer className="w-full text-white ">
-        {/*      <!-- Main footer --> */}
+      {/* <!-- Component: Five Columns Footer with Logo --> */}
+      <footer className="w-full text-white">
+        {/* <!-- Main footer content --> */}
         <div className="border-t border-slate-200 bg-gray-600 pt-16 pb-12 text-sm">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-3 gap-6 md:grid-cols-6 lg:grid-cols-12">
+              {/* <!-- Logo and copyright section --> */}
               <div
                 className="col-span-3 md:col-span-6 lg:col-span-3"
                 aria-labelledby="footer-header"
@@ -19,12 +21,14 @@ export default function Footer() {
                   className="mb-6 flex items-center gap-2 whitespace-nowrap text-3xl font-bold leading-6 text-white focus:outline-none"
                   href="javascript:void(0)"
                 >
-                  <img className="h-12 w-14 shrink-0" src={logo} alt="" />
+                  <img className="h-12 w-14 shrink-0" src={logo} alt="Logo" />
                   Nexcent
                 </a>
                 <p>Copyright © 2020 Nexcent ltd.</p>
                 <p>All rights reserved</p>
               </div>
+
+              {/* <!-- Company section with links --> */}
               <nav
                 className="col-span-3 md:col-span-6 lg:col-span-3"
                 aria-labelledby="footer-product-5-logo"
@@ -70,6 +74,8 @@ export default function Footer() {
                   </li>
                 </ul>
               </nav>
+
+              {/* <!-- Support section with links --> */}
               <nav
                 className="col-span-3 md:col-span-6 lg:col-span-3"
                 aria-labelledby="footer-docs-5-logo"
@@ -124,10 +130,11 @@ export default function Footer() {
                 </ul>
               </nav>
 
+              {/* <!-- Newsletter subscription form --> */}
               <div className="col-span-3 md:col-span-6 lg:col-span-3">
-              <h2 className="text-2xl md:text-5xl leading-none font-bold mb-12">
-							Newsletter
-						</h2>
+                <h2 className="text-2xl md:text-5xl leading-none font-bold mb-12">
+                  Newsletter
+                </h2>
                 <form>
                   <div className="rounded overflow-hidden">
                     <div className="flex flex-wrap justify-between rounded">
@@ -147,7 +154,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      {/*    <!-- End Five Columns Footer with Logo --> */}
+      {/* <!-- End Five Columns Footer with Logo --> */}
     </>
   );
 }

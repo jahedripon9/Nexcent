@@ -2,11 +2,12 @@ import logo from "../../assets/logo.png";
 import { useState } from "react";
 
 export default function Navigation() {
+  // State to handle the toggling of the mobile menu
   const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
     <>
-      {/*<!-- Header --> */}
+      {/* Header Section */}
       <header className=" relative z-20 w-full border-b border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden bg-slate-50 rounded-lg ">
         <div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
           <nav
@@ -14,7 +15,7 @@ export default function Navigation() {
             className="flex h-[5.5rem] items-stretch justify-between font-medium text-slate-700"
             role="navigation"
           >
-            {/*      <!-- Brand logo --> */}
+            {/* Brand logo - Left side */}
             <a
               id="WindUI"
               aria-label="WindUI logo"
@@ -27,11 +28,12 @@ export default function Navigation() {
                 width={300}
                 height={300}
                 src={logo}
-                alt=""
+                alt="Logo"
               />
               <span className="font-bold text-2xl">NEXCENT</span>
             </a>
-            {/*      <!-- Mobile trigger --> */}
+
+            {/* Mobile menu toggle button */}
             <button
               className={`relative order-10 block h-10 w-10 self-center lg:hidden
                 ${
@@ -59,7 +61,8 @@ export default function Navigation() {
                 ></span>
               </div>
             </button>
-            {/*      <!-- Navigation links --> */}
+
+            {/* Navigation links */}
             <ul
               role="menubar"
               aria-label="Select page"
@@ -69,6 +72,7 @@ export default function Navigation() {
                   : "invisible opacity-0"
               }`}
             >
+              {/* Navigation items */}
               <li role="none" className="flex items-stretch">
                 <a
                   role="menuitem"
@@ -130,6 +134,8 @@ export default function Navigation() {
                   <span>FAQ</span>
                 </a>
               </li>
+
+              {/* Login and Signup buttons */}
               <li role="none" className="flex items-stretch">
                 <a
                   role="menuitem"
@@ -142,7 +148,6 @@ export default function Navigation() {
                     href="#"
                   >
                     <span className="absolute inset-y-0 left-0 w-[2px] bg-green-600 transition-all group-hover:w-full group-active:bg-green-500"></span>
-
                     <span className="relative text-sm font-medium text-green-600 transition-colors group-hover:text-white">
                       Login
                     </span>
@@ -161,7 +166,6 @@ export default function Navigation() {
                     href="#"
                   >
                     <span className="absolute inset-y-0 right-0 w-[2px] bg-green-600 transition-all group-hover:w-full group-active:bg-green-500"></span>
-
                     <span className="relative text-sm font-medium text-green-600 transition-colors group-hover:text-white">
                       Sign up
                     </span>
@@ -169,11 +173,9 @@ export default function Navigation() {
                 </a>
               </li>
             </ul>
-            {/*      <!-- Actions --> */}
           </nav>
         </div>
       </header>
-      {/*<!-- End Navbar with Topbar--> */}
     </>
   );
 }
